@@ -6,17 +6,15 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'pip3 install -r requirements.txt'
+                sh 'python3 -m pip install -r requirements.txt'
             }
         }
-
 
         stage('Run Test') {
             steps {
-                sh 'pytest'
+                sh 'python3 -m pytest'
             }
         }
-
 
         stage('Build Completed') {
             steps {
@@ -25,4 +23,5 @@ pipeline {
         }
 
     }
+
 }
