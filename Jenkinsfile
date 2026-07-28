@@ -1,21 +1,17 @@
 pipeline {
-    agent {
-        docker {
-            image 'python:3.11'
-        }
-    }
+    agent any
 
     stages {
 
         stage('Install Dependencies') {
             steps {
-                sh 'pip install -r requirements.txt'
+                sh 'python3 -m pip install -r requirements.txt'
             }
         }
 
         stage('Run Test') {
             steps {
-                sh 'pytest'
+                sh 'python3 -m pytest'
             }
         }
 
@@ -24,5 +20,6 @@ pipeline {
                 echo 'Application Build Successful'
             }
         }
+
     }
 }
