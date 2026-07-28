@@ -6,6 +6,7 @@ pipeline {
 
         stage('Clone Code') {
             steps {
+                git branch: 'main',
                 git 'https://github.com/ashwini57-lab/jenkins-demo-pipeline.git'
             }
         }
